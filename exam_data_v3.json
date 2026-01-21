@@ -285,7 +285,7 @@
       "title": "Part VIII: Reading Comprehension",
       "icon": "🧠",
       "points": 20,
-      "type": "reading_open",
+      "type": "audio_choice",
       "readings": [
         {
           "title": "【敬語の乱れ】",
@@ -293,8 +293,30 @@
         }
       ],
       "questions": [
-        { "id": "q20", "text": "25. 筆者は、バイト敬語についてどう考えていますか？" },
-        { "id": "q21", "text": "26. 「1000円から」の正しい言い方は何ですか？" }
+        { 
+            "id": "q20", 
+            "title": "25. 筆者は、バイト敬語についてどう考えていますか？", 
+            "subtitle": "",
+            "correct": "c",
+            "options": [
+                { "value": "a", "text": "言葉の変化だから、問題ない。" },
+                { "value": "b", "text": "若者は正しい敬語を使っている。" },
+                { "value": "c", "text": "単なる変化ではなく、「乱れ」かもしれない。" },
+                { "value": "d", "text": "もっと複雑な敬語を使うべきだ。" }
+            ]
+        },
+        { 
+            "id": "q21", 
+            "title": "26. 「1000円から」の正しい言い方は何ですか？",
+            "subtitle": "",
+            "correct": "b",
+            "options": [
+                { "value": "a", "text": "1000円からお預かりします" },
+                { "value": "b", "text": "1000円お預かりします" },
+                { "value": "c", "text": "1000円になります" },
+                { "value": "d", "text": "1000円でございます" }
+            ]
+        }
       ]
     },
     {

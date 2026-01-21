@@ -383,6 +383,13 @@
             // Questions Logic
             html += `<div class="questions-container">`;
 
+            // Common: Render Reading Passage if exists (for any type)
+            if(section.readings) {
+                section.readings.forEach(r => {
+                    html += `<div class="reading-passage"><h4 style="margin-top:0;">${r.title}</h4>${r.text}</div>`;
+                });
+            }
+
             if(section.type === 'gap_fill_audio' || section.type === 'gap_fill_text') {
                 html += `<div style="line-height: 2.8; font-size: 1.1rem;">`;
                 section.questions.forEach(q => {
@@ -416,11 +423,6 @@
                 });
                 html += `<div class="reading-passage">${content}</div>`;
             } else if (section.type === 'reading_open') {
-                if(section.readings) {
-                    section.readings.forEach(r => {
-                        html += `<div class="reading-passage"><h4 style="margin-top:0;">${r.title}</h4>${r.text}</div>`;
-                    });
-                }
                 section.questions.forEach(q => {
                     html += `
                         <div class="question-item">
