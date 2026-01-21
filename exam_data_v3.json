@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "title": "THI MẪU TIẾNG NHẬT 5 - FINAL",
+    "course": "Chuukyuu e ikou (Unit 6 - 10) & N3 Review",
+    "total_points": 150,
+    "duration_minutes": 60
+  },
+  "sections": [
+    {
+      "id": "part1",
+      "title": "Part I: Listening - Gap Filling",
+      "icon": "🎧",
+      "points": 20,
+      "type": "gap_fill_audio",
+      "description": "Nghe từng câu và điền từ còn thiếu. (Có 8 giây chờ giữa các câu)",
+      "limit": 10,
+      "audio_script": "1. インスタントコーヒーは、カトウサトリ氏によって発明された。 2. 以前は、環境を守るという意識はあまりなかった。 3. 市町村は、ごみのリサイクルを呼びかけている。 4. 聞き手は、話を聞いているという合図として、相槌を打つ。 5. 日本では、話の途中でうなずくことが非常に多い。 6. 看護師という呼び名は、男女の区別がない。 7. 日本では、共働きの家庭が増えている。 8. 最近、若者の言葉遣いによって敬語が乱れている。 9. この機会に、本来の言葉の意味を考えてみよう。 10. 開発された製品は、世界中で使用されている。",
+      "questions": [
+        { "id": "l1_1", "pre": "1. インスタントコーヒーは、カトウ・サトリ氏 (", "post": ") 発明された。", "answer": ["によって"] },
+        { "id": "l1_2", "pre": "2. 以前は、(", "post": ") を守るという意識はあまりなかった。", "answer": ["環境"] },
+        { "id": "l1_3", "pre": "3. 市町村は、ごみのリサイクルを (", "post": ") いる。", "answer": ["呼びかけて", "よびかけて"] },
+        { "id": "l1_4", "pre": "4. 聞き手は、話を聞いているという (", "post": ") として、相槌を打つ。", "answer": ["合図", "あいず"] },
+        { "id": "l1_5", "pre": "5. 日本では、話の途中で (", "post": ") ことが非常に多い。", "answer": ["うなずく", "頷く"] },
+        { "id": "l1_6", "pre": "6. 看護師という呼び名は、男女の (", "post": ") がない。", "answer": ["区別", "くべつ"] },
+        { "id": "l1_7", "pre": "7. 日本では、(", "post": ") の家庭が増えている。", "answer": ["共働き", "ともばたらき"] },
+        { "id": "l1_8", "pre": "8. 最近、若者の言葉遣いによって敬語が (", "post": ") いる。", "answer": ["乱れて", "みだれて"] },
+        { "id": "l1_9", "pre": "9. この機会に、(", "post": ") の言葉の意味を考えてみよう。", "answer": ["本来", "ほんらい"] },
+        { "id": "l1_10", "pre": "10. 開発された製品は、世界中で (", "post": ") されている。", "answer": ["使用", "しよう"] }
+      ]
+    },
+    {
+      "id": "part2",
+      "title": "Part II: Listening - Q&A (Essay)",
+      "icon": "🤔",
+      "points": 20,
+      "type": "reading_open",
+      "description": "Nghe câu hỏi và viết câu trả lời chi tiết. (Có 20 giây chờ câu trả lời)",
+      "audio_script": "11. 相槌を打つのはなぜですか。 12. どうしてリサイクルをする必要があるのですか。",
+      "questions": [
+        {
+          "id": "q11",
+          "text": "Question 11: (Nghe & Viết câu trả lời)"
+        },
+        {
+          "id": "q12",
+          "text": "Question 12: (Nghe & Viết câu trả lời)"
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "title": "Part III: Vocabulary & Kanji",
+      "icon": "🔤",
+      "points": 20,
+      "limit": 5,
+      "type": "audio_choice",
+      "description": "Chọn cách đọc đúng cho từ Kanji được gạch chân.",
+      "questions": [
+        {
+          "id": "q_k1",
+          "title": "Q1. <u>環境</u>を守る。",
+          "correct": "a",
+          "options": [
+            { "value": "a", "text": "かんきょう" },
+            { "value": "b", "text": "かんこう" },
+            { "value": "c", "text": "けんきょう" }
+          ]
+        },
+        {
+          "id": "q_k2",
+          "title": "Q2. <u>意識</u>する。",
+          "correct": "b",
+          "options": [
+            { "value": "a", "text": "ちしき" },
+            { "value": "b", "text": "いしき" },
+            { "value": "c", "text": "そしき" }
+          ]
+        },
+        {
+          "id": "q_k3",
+          "title": "Q3. <u>平等</u>に分ける。",
+          "correct": "c",
+          "options": [
+            { "value": "a", "text": "へいとう" },
+            { "value": "b", "text": "びょうどう" },
+            { "value": "c", "text": "びょうどう" }
+          ]
+        },
+        {
+          "id": "q_k4",
+          "title": "Q4. <u>役割</u>を果たす。",
+          "correct": "a",
+          "options": [
+            { "value": "a", "text": "やくわり" },
+            { "value": "b", "text": "やくわ" },
+            { "value": "c", "text": "よしわり" }
+          ]
+        },
+        {
+          "id": "q_k5_new",
+          "title": "Q5. 新しい技術を<u>発明</u>する。",
+          "correct": "b",
+          "options": [
+            { "value": "a", "text": "はつめ" },
+            { "value": "b", "text": "はつめい" },
+            { "value": "c", "text": "ほつめい" }
+          ]
+        },
+        {
+          "id": "q_k6_new",
+          "title": "Q6. 男女の<u>区別</u>。",
+          "correct": "a",
+          "options": [
+            { "value": "a", "text": "くべつ" },
+            { "value": "b", "text": "さべつ" },
+            { "value": "c", "text": "くわけ" }
+          ]
+        },
+        {
+          "id": "q_k7_new",
+          "title": "Q7. <u>資源</u>を大切にする。",
+          "correct": "c",
+          "options": [
+            { "value": "a", "text": "しその" },
+            { "value": "b", "text": "じげん" },
+            { "value": "c", "text": "しげん" }
+          ]
+        },
+        {
+          "id": "q_k8_new",
+          "title": "Q8. 生活習慣が<u>乱れる</u>。",
+          "correct": "b",
+          "options": [
+            { "value": "a", "text": "あばれる" },
+            { "value": "b", "text": "みだれる" },
+            { "value": "c", "text": "こわれる" }
+          ]
+        },
+         {
+          "id": "q_k9_new",
+          "title": "Q9. 地球<u>温暖化</u>が進む。",
+          "correct": "a",
+          "options": [
+            { "value": "a", "text": "おんだんか" },
+            { "value": "b", "text": "おんたんか" },
+            { "value": "c", "text": "おんだっか" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part4",
+      "title": "Part IV: Grammar - Sentence Completion",
+      "icon": "✍️",
+      "points": 15,
+      "limit": 5,
+      "type": "gap_fill_text",
+      "questions": [
+        { "id": "q13", "pre": "13. 彼は数学 (", "post": ") 苦労している。", "style": "width:50px", "answer": ["に"] },
+        { "id": "q14", "pre": "14. 私は毎日、野菜をたくさん食べる (", "post": ") している。", "answer": ["ように"] },
+        { "id": "q15", "pre": "15. この料理はガスコンロ (", "post": ") 、電子レンジで作った。", "style": "width:100px", "answer": ["ではなくて", "じゃなくて"] },
+        { "id": "q16_g", "pre": "16. このロボットは人間 (", "post": ") 動きます。", "style": "width:100px", "answer": ["みたいに", "のように"] },
+        { "id": "q17_g", "pre": "17. 勉強すればする (", "post": ") 、日本語が楽しくなる。", "style": "width:100px", "answer": ["ほど"] },
+        { "id": "q_g1_new", "pre": "18. 日本の夏 (", "post": ") 、花火大会だ。", "style": "width:100px", "answer": ["といえば"] },
+        { "id": "q_g2_new", "pre": "19. 若者 (", "post": ") 高齢者もスマホを使っている。", "style": "width:100px", "answer": ["だけでなく"] },
+        { "id": "q_g3_new", "pre": "20. 客のクレーム (", "post": ") 丁寧に答える。", "style": "width:100px", "answer": ["に対して", "にたいして"] },
+        { "id": "q_g4_new", "pre": "21. 嫌いな (", "post": ") ないが、あまり食べたくない。", "style": "width:100px", "answer": ["わけでは", "わけじゃ"] },
+        { "id": "q_g5_new", "pre": "22. まだ時間があるから、急ぐ (", "post": ") ない。", "style": "width:100px", "answer": ["ことは"] }
+      ]
+    },
+    {
+      "id": "part5",
+      "title": "Part V: Word Ordering (★)",
+      "icon": "⭐",
+      "points": 20,
+      "limit": 3,
+      "type": "audio_choice",
+      "description": "Sắp xếp các từ thành câu hoàn chỉnh và chọn từ ở vị trí có dấu sao (★).",
+      "questions": [
+        {
+          "id": "q_star1",
+          "title": "Q18. 日本語が ____ ____ _★_ ____ なりました。",
+          "subtitle": "(Sắp xếp: 1. 話せる  2. ように  3. 上手に  4. だんだん)",
+          "correct": "1",
+          "options": [
+            { "value": "1", "text": "1. 話せる" },
+            { "value": "2", "text": "2. ように" },
+            { "value": "3", "text": "3. 上手に" },
+            { "value": "4", "text": "4. だんだん" }
+          ]
+        },
+        {
+          "id": "q_star2",
+          "title": "Q19. 彼は ____ ____ _★_ ____ と言われている。",
+          "subtitle": "(Sắp xếp: 1. 作家  2. 国民的な  3. もっとも  4. だ)",
+          "correct": "1",
+          "options": [
+            { "value": "1", "text": "1. 作家" },
+            { "value": "2", "text": "2. 国民的な" },
+            { "value": "3", "text": "3. もっとも" },
+            { "value": "4", "text": "4. だ" }
+          ]
+        },
+        {
+          "id": "q_star3",
+          "title": "Q20. ゴミを ____ ____ _★_ ____ 資源が守れます。",
+          "subtitle": "(Sắp xếp: 1. こと  2. に  3. よって  4. 分ける)",
+          "correct": "2",
+          "options": [
+            { "value": "1", "text": "1. こと" },
+            { "value": "2", "text": "2. に" },
+            { "value": "3", "text": "3. よって" },
+            { "value": "4", "text": "4. 分ける" }
+          ]
+        },
+        {
+          "id": "q_star4_new",
+          "title": "Q21. 兄は ____ ____ _★_ ____ いません。",
+          "subtitle": "(Sắp xếp: 1. まだ  2. 帰って  3. 家に  4. きて)",
+          "correct": "4",
+          "options": [
+            { "value": "1", "text": "1. まだ" },
+            { "value": "2", "text": "2. 帰って" },
+            { "value": "3", "text": "3. 家に" },
+            { "value": "4", "text": "4. きて" }
+          ]
+        },
+        {
+          "id": "q_star5_new",
+          "title": "Q22. この薬は ____ ____ _★_ ____ ください。",
+          "subtitle": "(Sắp xếp: 1. 飲まないで  2. 寝る  3. 前に  4. は)",
+          "correct": "1",
+          "options": [
+            { "value": "1", "text": "1. 飲まないで" },
+            { "value": "2", "text": "2. 寝る" },
+            { "value": "3", "text": "3. 前に" },
+            { "value": "4", "text": "4. は" }
+          ]
+        },
+        {
+          "id": "q_star6_new",
+          "title": "Q23. 彼女は ____ ____ _★_ ____ 歌手だ。",
+          "subtitle": "(Sắp xếp: 1. 世界で  2. ばかりでなく  3. 日本  4. 有名な)",
+          "correct": "1",
+          "options": [
+            { "value": "1", "text": "1. 世界で" },
+            { "value": "2", "text": "2. ばかりでなく" },
+            { "value": "3", "text": "3. 日本" },
+            { "value": "4", "text": "4. 有名な" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part6",
+      "title": "Part VI: Reading - Gap Filling",
+      "icon": "📖",
+      "points": 15,
+      "type": "reading_gap",
+      "content_html": "昔は、病院で働く女性は「看護婦」と呼ばれていたが、今は男女問わず「(20. {q16} )」と呼ばれている。また、リサイクルのために、スーパーには (21. {q17} ) やペットボトルの回収ボックスが置かれている。環境を守るためには、私たち一人一人が (22. {q22_read} ) を持つことが大切だ。",
+      "questions": [
+        { "id": "q16", "answer": ["看護師", "かんごし"] },
+        { "id": "q17", "answer": ["牛乳パック", "ぎゅうにゅうパック"] },
+        { "id": "q22_read", "answer": ["意識", "いしき"] }
+      ]
+    },
+    {
+      "id": "part7",
+      "title": "Part VII: Word Choice",
+      "icon": "⭕",
+      "points": 10,
+      "limit": 2,
+      "type": "gap_fill_text",
+      "description": "Type the correct word from the parentheses into the box.",
+      "questions": [
+        { "id": "q18", "pre": "23. 新しい製品を ( 開発 ・ 変化 ) する。 <i class='fas fa-arrow-right' style='color:var(--primary);'></i>", "post": "", "answer": ["開発"] },
+        { "id": "q19", "pre": "24. 温暖化で気温が ( 下がって ・ 上がって ) いる。 <i class='fas fa-arrow-right' style='color:var(--primary);'></i>", "post": "", "answer": ["上がって", "あがって"] },
+        { "id": "q20_new", "pre": "25. 問題を ( 解決 ・ 決定 ) する。 <i class='fas fa-arrow-right' style='color:var(--primary);'></i>", "post": "", "answer": ["解決", "かいけつ"] },
+        { "id": "q21_new", "pre": "26. インターネットを ( 利用 ・ 採用 ) する。 <i class='fas fa-arrow-right' style='color:var(--primary);'></i>", "post": "", "answer": ["利用", "りよう"] },
+        { "id": "q22_new", "pre": "27. 将来の ( 生活 ・ 人生 ) について考える。 <i class='fas fa-arrow-right' style='color:var(--primary);'></i>", "post": "", "answer": ["人生", "じんせい"] }
+      ]
+    },
+    {
+      "id": "part8",
+      "title": "Part VIII: Reading Comprehension",
+      "icon": "🧠",
+      "points": 20,
+      "type": "reading_open",
+      "readings": [
+        {
+          "title": "【敬語の乱れ】",
+          "text": "最近、正しい敬語が使われていないという声をよく聞く。本来の敬語とは違う使い方が増えているのだ。例えば、バイト先で「1000円からお預かりします」と言う若者が多いが、これは本来「1000円お預かりします」と言うべきだ。言葉は時代とともに変化するものだが、これは「変化」なのだろうか、それともただの「乱れ」なのだろうか。"
+        }
+      ],
+      "questions": [
+        { "id": "q20", "text": "25. 筆者は、バイト敬語についてどう考えていますか？" },
+        { "id": "q21", "text": "26. 「1000円から」の正しい言い方は何ですか？" }
+      ]
+    },
+    {
+      "id": "part9",
+      "title": "Part IX: Essay / Opinion",
+      "icon": "💭",
+      "points": 20,
+      "limit": 2,
+      "type": "reading_open",
+      "questions": [
+        { "id": "q22", "text": "27. あなたが知っている「発明」の中で、最も便利なものは何ですか。理由も書いてください。" },
+        { "id": "q23", "text": "28. あなたの国では、話を聞くときに「相槌」を打ちますか。" },
+        { "id": "q24_new", "text": "29. 地球環境を守るために、あなたができることは何ですか。" },
+        { "id": "q25_new", "text": "30. 日本語の敬語について、どう思いますか。難しい点や良い点を書いてください。" }
+      ]
+    }
+  ]
+}

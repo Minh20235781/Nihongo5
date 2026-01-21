@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAPANESE ADVANCED TEST | K68</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #4F46E5;       /* Indigo */
+            --primary-dark: #3730a3;
+            --secondary: #10B981;     /* Emerald */
+            --accent: #F59E0B;        /* Amber */
+            --danger: #EF4444;        /* Red */
+            --bg: #F3F4F6;            /* Light Gray */
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+        }
+
+        /* --- GLOBAL & TYPOGRAPHY --- */
+        body {
+            font-family: 'Poppins', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding-top: 90px;
+            padding-bottom: 100px;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 { margin: 0; color: var(--primary-dark); }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- FIXED NAVBAR --- */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .nav-brand { font-weight: 700; font-size: 1.4rem; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .timer-badge {
+            background: var(--primary); color: white;
+            padding: 8px 16px; border-radius: 50px;
+            font-weight: 600; font-family: 'Monaco', monospace;
+            display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+            transition: 0.3s;
+        }
+        .timer-badge.warning { background: var(--danger); animation: pulse 1s infinite; }
+
+        /* --- CARD DESIGN --- */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .section-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+        .section-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%;
+            background: var(--primary); opacity: 0.8;
+        }
+
+        .section-title {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 25px; border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 15px; font-size: 1.3rem;
+        }
+        .badge-points {
+            font-size: 0.8rem; background: var(--bg); color: var(--text-muted);
+            padding: 4px 10px; border-radius: 20px; margin-left: auto;
+        }
+
+        /* --- AUDIO PLAYER --- */
+        .audio-player {
+            background: #EEF2FF; border: 1px solid #C7D2FE;
+            padding: 15px 20px; border-radius: 12px;
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 25px;
+        }
+        .play-btn {
+            width: 45px; height: 45px; border-radius: 50%;
+            background: var(--primary); color: white;
+            border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: 0.2s; box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
+        }
+        .play-btn:hover { background: var(--primary-dark); transform: scale(1.1); }
+        .play-btn.playing { background: var(--danger); animation: pulse-shadow 1.5s infinite; }
+        .audio-wave { flex: 1; height: 30px; display: flex; align-items: center; gap: 3px; opacity: 0.5; }
+        .wave-bar { flex: 1; background: var(--primary); height: 4px; border-radius: 2px; }
+        .playing .wave-bar { animation: wave 1s infinite ease-in-out alternate; }
+
+        /* --- INPUTS & QUESTIONS --- */
+        .question-item { margin-bottom: 20px; font-size: 1.05rem; }
+        
+        /* Styled Text Input */
+        .gap-input {
+            border: none; border-bottom: 2px solid #d1d5db;
+            background: transparent; color: var(--primary);
+            font-weight: 600; text-align: center; width: 120px;
+            padding: 2px 5px; transition: 0.3s;
+            font-family: inherit; font-size: 1rem;
+        }
+        .gap-input:focus { outline: none; border-color: var(--primary); width: 140px; }
+        .gap-input.correct-ui { border-color: var(--secondary) !important; color: var(--secondary); background: #ecfdf5; }
+        .gap-input.wrong-ui { border-color: var(--danger) !important; color: var(--danger); background: #fef2f2; }
+
+        /* Styled Radio Options */
+        .options-grid { display: grid; gap: 10px; margin-top: 10px; }
+        .option-label {
+            display: flex; align-items: center; padding: 12px 15px;
+            background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;
+            cursor: pointer; transition: 0.2s;
+        }
+        .option-label:hover { background: #EEF2FF; border-color: var(--primary); }
+        .option-label input { margin-right: 12px; transform: scale(1.2); accent-color: var(--primary); }
+        
+        .option-label.selected-correct { background: #d1fae5; border-color: var(--secondary); color: #065f46; }
+        .option-label.selected-wrong { background: #fee2e2; border-color: var(--danger); color: #991b1b; }
+
+        /* Textareas */
+        textarea {
+            width: 100%; min-height: 100px;
+            border: 2px solid #e5e7eb; border-radius: 12px;
+            padding: 15px; font-family: inherit; font-size: 1rem;
+            resize: vertical; margin-top: 10px; box-sizing: border-box;
+            transition: 0.3s;
+        }
+        textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
+
+        /* --- READING BOX --- */
+        .reading-passage {
+            background: #FFFBEB; border-left: 5px solid #F59E0B;
+            padding: 20px; border-radius: 0 8px 8px 0;
+            line-height: 1.8; font-family: 'Noto Sans JP', serif;
+            margin-bottom: 25px; color: #4b5563;
+        }
+
+        /* --- FOOTER & BUTTONS --- */
+        .floating-footer {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: white; padding: 15px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            display: flex; justify-content: center; gap: 20px;
+            z-index: 999;
+        }
+        .btn {
+            padding: 12px 30px; border: none; border-radius: 50px;
+            font-size: 1.1rem; font-weight: 600; cursor: pointer;
+            display: flex; align-items: center; gap: 10px;
+            transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-submit { background: var(--secondary); color: white; }
+        .btn-submit:hover { background: #059669; transform: translateY(-2px); }
+        .btn-reset { background: white; border: 2px solid #e5e7eb; color: var(--text-muted); }
+        .btn-reset:hover { background: #f3f4f6; color: var(--danger); border-color: var(--danger); }
+
+        /* --- MODAL & OVERLAY --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6); z-index: 2000;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden; transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        
+        .result-card {
+            background: white; width: 90%; max-width: 500px;
+            border-radius: 20px; padding: 40px; text-align: center;
+            transform: scale(0.8); transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal-overlay.active .result-card { transform: scale(1); }
+        
+        .score-circle {
+            width: 150px; height: 150px; margin: 0 auto 20px;
+            border-radius: 50%; border: 10px solid #f3f4f6;
+            display: flex; flex-direction: column; justify-content: center;
+            font-size: 3rem; font-weight: 800; color: var(--primary);
+            position: relative;
+        }
+
+        /* --- KEYFRAMES --- */
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+        @keyframes pulse-shadow { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+        @keyframes wave { 0% { height: 4px; } 50% { height: 20px; } 100% { height: 4px; } }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-brand"><i class="fas fa-torii-gate"></i> JPN TEST K68</div>
+        <div class="timer-badge" id="timerBadge">
+            <i class="far fa-clock"></i> <span id="timeDisplay">45:00</span>
+        </div>
+    </nav>
+
+    <!-- HEADER info -->
+    <div class="container" id="exam-header" style="margin-top: 20px; text-align: center; margin-bottom: 40px;"></div>
+
+    <div class="container" id="exam-content">
+        <div style="text-align:center; padding: 50px; color: var(--text-muted);">
+            <i class="fas fa-spinner fa-spin fa-3x" style="color:var(--primary)"></i>
+            <p style="margin-top: 15px;">Loading Exam Data from API...</p>
+        </div>
+    </div>
+
+    <!-- FLOATING FOOTER -->
+    <div class="floating-footer">
+        <button class="btn btn-reset" onclick="resetExam()"><i class="fas fa-redo"></i> RESET</button>
+        <button class="btn btn-submit" onclick="submitExam()"><i class="fas fa-check-circle"></i> SUBMIT & CHECK</button>
+    </div>
+
+    <!-- RESULT MODAL -->
+    <div class="modal-overlay" id="resultModal">
+        <div class="result-card">
+            <div class="score-circle" id="finalScoreDisplay">
+                0
+                <span style="font-size:1rem; font-weight:400; color:#6b7280;">/ 100</span>
+            </div>
+            <h2 style="margin-bottom: 10px;">Exam Completed!</h2>
+            <p id="feedbackText" style="color: #6b7280; margin-bottom: 30px;">Great effort! Check your answers below.</p>
+            <button class="btn btn-submit" style="width:100%; justify-content:center;" onclick="closeModal()">Review Answers</button>
+        </div>
+    </div>
+
+<script>
+    // --- GLOBAL STATE ---
+    let EXAM_DATA = null;
+    const synth = window.speechSynthesis;
+    let timerInterval;
+
+    // --- 1. DATA LOADING & RENDERING ---
+    window.onload = async () => {
+        try {
+            // Attempt to fetch local JSON
+            // Changed to v3
+            const response = await fetch('exam_data_v3.json');
+            if(!response.ok) throw new Error("HTTP error " + response.status);
+            EXAM_DATA = await response.json();
+            
+            // RANDOMIZE EXAM DATA
+            randomizeData(EXAM_DATA);
+
+            initExam(EXAM_DATA);
+        } catch (error) {
+            console.error(error);
+            document.getElementById('exam-content').innerHTML = `
+                <div style="text-align:center; padding: 40px; background: #fee2e2; border-radius: 12px; border: 1px solid #ef4444; color: #b91c1c;">
+                    <i class="fas fa-exclamation-triangle fa-3x" style="margin-bottom:15px;"></i>
+                    <h3>Data Load Error</h3>
+                    <p>Browser security blocks fetching JSON files directly from your hard drive (file:// protocol).</p>
+                    <p style="margin-top:10px; font-weight:600;">How to fix:</p>
+                    <ul style="list-style:none; padding:0;">
+                        <li>1. Use VS Code <b>"Live Server"</b> extension (Recommended)</li>
+                        <li>2. Or run Python: <code>python -m http.server</code></li>
+                    </ul>
+                </div>
+            `;
+        }
+    };
+
+    function randomizeData(data) {
+        // Sections where order does not matter (independent questions)
+        const shuffleableIds = ['part3', 'part4', 'part5', 'part7', 'part9'];
+        
+        // Helper to shuffle array
+        const shuffle = (arr) => {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        };
+
+        // Helper to extract number prefix from string (e.g. "13. " or "Q1. ")
+        // Returns the number found, or null
+        const getStartNumber = (str) => {
+            const match = str.match(/(?:Q)?(\d+)\./);
+            return match ? parseInt(match[1]) : null;
+        };
+
+        data.sections.forEach(section => {
+            if (shuffleableIds.includes(section.id) && section.questions.length > 0) {
+                
+                // 1. Detect starting number to maintain continuity (e.g. starts at 13)
+                // We assume the JSON is ordered initially.
+                // We check the first question to find the start index.
+                let startNum = 1;
+                let isQFormat = false; // "Q1." format
+
+                const firstQ = section.questions[0];
+                if (firstQ.pre) startNum = getStartNumber(firstQ.pre) || 1;
+                else if (firstQ.title) {
+                    startNum = getStartNumber(firstQ.title) || 1;
+                    if(firstQ.title.trim().startsWith('Q')) isQFormat = true;
+                }
+                else if (firstQ.text) startNum = getStartNumber(firstQ.text) || 1;
+
+                // 2. Shuffle questions
+                shuffle(section.questions);
+
+                // LIMIT: If section has a 'limit' property, slice the questions
+                if (section.limit && typeof section.limit === 'number') {
+                    section.questions = section.questions.slice(0, section.limit);
+                }
+
+                // 3. Re-apply numbering
+                section.questions.forEach((q, index) => {
+                    const currentNum = startNum + index;
+                    const prefix = isQFormat ? `Q${currentNum}. ` : `${currentNum}. `;
+                    
+                    if (q.pre) q.pre = q.pre.replace(/^(?:\d+\.|Q\d+\.)\s*/, prefix);
+                    if (q.title) q.title = q.title.replace(/^(?:\d+\.|Q\d+\.)\s*/, prefix);
+                    if (q.text) q.text = q.text.replace(/^(?:\d+\.|Q\d+\.)\s*/, prefix);
+                    // Part 5 specific: Title might change, but question ID stays key for tracking
+                });
+            }
+        });
+    }
+
+    function initExam(data) {
+        // Render Header
+        document.getElementById('exam-header').innerHTML = `
+            <h1 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 10px;">${data.meta.title}</h1>
+            <p style="color: var(--text-muted);">
+                <i class="fas fa-book-open"></i> ${data.meta.course} | <i class="fas fa-star"></i> ${data.meta.total_points} Points
+            </p>
+        `;
+
+        // Start Timer
+        startTimer(data.meta.duration_minutes * 60);
+
+        // Render Sections
+        const contentDiv = document.getElementById('exam-content');
+        contentDiv.innerHTML = ''; // Clear loading
+
+        data.sections.forEach(section => {
+            const sectionEl = document.createElement('div');
+            sectionEl.className = 'section-card';
+            
+            // Header
+            let html = `
+                <div class="section-title">
+                    <span style="font-size: 1.5rem;">${section.icon}</span>
+                    <b>${section.title}</b>
+                    <span class="badge-points">${section.points} Points</span>
+                </div>
+            `;
+
+            // Description
+            if(section.description) html += `<p style="margin-bottom:15px"><i>${section.description}</i></p>`;
+
+            // Audio Player if applicable
+            if(section.audio_script) {
+                html += `
+                    <div class="audio-player" id="player-${section.id}">
+                        <button class="play-btn" onclick="playAudio('${section.id}')"><i class="fas fa-play"></i></button>
+                        <div class="audio-wave wave-${section.id}"></div>
+                        <span style="font-size: 0.9rem; font-weight: 600; color: var(--primary);">Audio Track</span>
+                    </div>
+                `;
+            }
+
+            // Questions Logic
+            html += `<div class="questions-container">`;
+
+            if(section.type === 'gap_fill_audio' || section.type === 'gap_fill_text') {
+                html += `<div style="line-height: 2.8; font-size: 1.1rem;">`;
+                section.questions.forEach(q => {
+                    html += `
+                        <div class="question-item">
+                            ${q.pre} <input type="text" class="gap-input" id="${q.id}" placeholder="..." style="${q.style||''}"> ${q.post}
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            } else if (section.type === 'audio_choice') {
+                section.questions.forEach(q => {
+                    let opts = q.options.map(opt => `
+                        <label class="option-label">
+                            <input type="radio" name="${q.id}" value="${opt.value}"> ${opt.text}
+                        </label>
+                    `).join('');
+                    
+                    html += `
+                        <div class="question-item" data-qid="${q.id}">
+                            <p><b>${q.title}</b> <span style="font-size: 0.9em; color:#666;">${q.subtitle || ''}</span></p>
+                            <div class="options-grid">${opts}</div>
+                        </div>
+                    `;
+                });
+            } else if (section.type === 'reading_gap') {
+                 // Replace {qid} with input
+                let content = section.content_html;
+                section.questions.forEach(q => {
+                    content = content.replace(`{${q.id}}`, `<input type="text" class="gap-input" id="${q.id}">`);
+                });
+                html += `<div class="reading-passage">${content}</div>`;
+            } else if (section.type === 'reading_open') {
+                if(section.readings) {
+                    section.readings.forEach(r => {
+                        html += `<div class="reading-passage"><h4 style="margin-top:0;">${r.title}</h4>${r.text}</div>`;
+                    });
+                }
+                section.questions.forEach(q => {
+                    html += `
+                        <div class="question-item">
+                            <p>${q.text}</p>
+                            <textarea id="${q.id}" placeholder="Type your answer here..."></textarea>
+                        </div>
+                    `;
+                });
+            }
+
+            html += `</div>`;
+            sectionEl.innerHTML = html;
+            contentDiv.appendChild(sectionEl);
+        });
+
+        // Initialize Audio Waves
+        renderWaves();
+    }
+
+    function renderWaves() {
+        document.querySelectorAll('.audio-wave').forEach(el => {
+            el.innerHTML = '';
+            for(let i=0; i<10; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'wave-bar';
+                bar.style.height = Math.floor(Math.random() * 20 + 4) + 'px';
+                el.appendChild(bar);
+            }
+        });
+    }
+
+    // --- 2. AUDIO SYSTEM ---
+    async function playAudio(sectionId) {
+        if (synth.speaking) {
+            synth.cancel();
+            resetAudioUI();
+            return;
+        }
+
+        const section = EXAM_DATA.sections.find(s => s.id === sectionId);
+        if(!section || !section.audio_script) return;
+
+        // UI Active State
+        const playerBtn = document.querySelector(`#player-${sectionId} .play-btn`);
+        const playerDiv = document.querySelector(`#player-${sectionId}`);
+        const statusSpan = playerDiv ? playerDiv.querySelector('span') : null;
+        const originalStatus = statusSpan ? statusSpan.innerText : "Audio Track";
+
+        if(playerBtn) {
+            playerBtn.classList.add('playing');
+            playerBtn.querySelector('i').className = 'fas fa-stop';
+        }
+        if(playerDiv) playerDiv.classList.add('playing');
+
+        // Corrected logic to split script for pauses
+        let segments = [];
+        
+        // Regex to match "1. Text..." blocks
+        // Uses match instead of split to avoid issues with double digits (e.g. "11." splitting at '1' and '1.')
+        // Pattern: Number + Dot + Space + Content... UP TO (Next Number or End)
+        const boxPattern = /\d+\.\s[\s\S]*?(?=(?:\d+\.\s)|$)/g;
+        
+        if (boxPattern.test(section.audio_script) && section.title.includes("Part")) {
+             segments = section.audio_script.match(boxPattern) || [];
+        } else {
+             // Fallback
+             segments = section.audio_script.split("||PAUSE||");
+        }
+
+        for (let i = 0; i < segments.length; i++) {
+            if (!playerBtn.classList.contains('playing')) break; // Stop hit
+
+            const text = segments[i].trim();
+            if(!text) continue;
+
+            // Update UI to show what's happening
+            if(statusSpan) statusSpan.innerText = `Playing segment ${i+1}/${segments.length}...`;
+
+            await speakSegment(text);
+
+            // Wait time logic (only if not the last segment)
+            if (i < segments.length - 1) {
+                if(statusSpan) statusSpan.innerText = `⏳ Waiting for answer...`;
+                
+                // Determine wait time based on type
+                let waitTime = 8000;
+                if (section.type === 'audio_choice') waitTime = 10000;
+                if (section.type === 'reading_open') waitTime = 20000; // Essay takes longer
+
+                await new Promise(r => setTimeout(r, waitTime)); 
+            }
+        }
+
+        resetAudioUI();
+        if(statusSpan) statusSpan.innerText = originalStatus;
+    }
+
+    function speakSegment(text) {
+        return new Promise((resolve) => {
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.lang = 'ja-JP';
+            utter.rate = 0.9;
+            utter.onend = resolve;
+            utter.onerror = resolve; // Continue on error
+            synth.speak(utter);
+        });
+    }
+
+    function resetAudioUI() {
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.classList.remove('playing');
+            btn.querySelector('i').className = 'fas fa-play';
+        });
+        document.querySelectorAll('.audio-player').forEach(div => div.classList.remove('playing'));
+    }
+
+    // --- 3. SUBMISSION ENGINE ---
+    function submitExam() {
+        if(!EXAM_DATA) return;
+        clearInterval(timerInterval);
+        
+        let score = 0;
+        let totalPossible = EXAM_DATA.meta.total_points;
+
+        EXAM_DATA.sections.forEach(section => {
+            // Logic for different types
+            if (section.type === 'gap_fill_audio' || section.type === 'gap_fill_text' || section.type === 'reading_gap') {
+                const ptsPerQ = section.points / section.questions.length; // auto calculate weight
+                
+                section.questions.forEach(q => {
+                    const el = document.getElementById(q.id);
+                    if(el) {
+                         const val = el.value.trim();
+                         el.classList.remove('correct-ui', 'wrong-ui');
+                         
+                         // Check against possible answers
+                         if(q.answer.includes(val)) {
+                             score += ptsPerQ;
+                             el.classList.add('correct-ui');
+                         } else {
+                             el.classList.add('wrong-ui');
+                         }
+                    }
+                });
+            } 
+            else if (section.type === 'audio_choice') {
+                const ptsPerQ = section.points / section.questions.length;
+                section.questions.forEach(q => {
+                    const selected = document.querySelector(`input[name="${q.id}"]:checked`);
+                    const correctLabel = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`)?.parentElement;
+                    
+                    if(correctLabel) correctLabel.classList.add('selected-correct');
+
+                    if(selected) {
+                        if(selected.value === q.correct) {
+                            score += ptsPerQ;
+                        } else {
+                            selected.parentElement.classList.add('selected-wrong');
+                        }
+                    }
+                });
+            }
+            else if (section.type === 'reading_open') {
+                // Heuristic scoring for open ended
+                 const ptsPerQ = section.points / section.questions.length;
+                 section.questions.forEach(q => {
+                    const val = document.getElementById(q.id)?.value || '';
+                    if(val.length > 5) score += ptsPerQ;
+                 });
+            }
+        });
+
+        showResult(score);
+    }
+
+    function showResult(score) {
+        const finalScore = Math.round(score);
+        document.getElementById('finalScoreDisplay').innerHTML = `${finalScore}<span style="font-size:1rem;">/ 100</span>`;
+        
+        let feedback = "Keep practicing!";
+        if(finalScore >= 90) feedback = "Excellent! Perfect Mastery!";
+        else if(finalScore >= 70) feedback = "Good Job! You passed.";
+        
+        document.getElementById('feedbackText').innerText = feedback;
+        document.getElementById('resultModal').classList.add('active');
+
+        const circle = document.getElementById('finalScoreDisplay');
+        if(finalScore >= 80) circle.style.color = '#10B981';
+        else if(finalScore < 50) circle.style.color = '#EF4444';
+        else circle.style.color = '#F59E0B';
+    }
+
+    function closeModal() {
+        document.getElementById('resultModal').classList.remove('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetExam() {
+        if(confirm("Start over?")) location.reload();
+    }
+
+    // --- 4. TIMER ---
+    function startTimer(duration) {
+        let timer = duration, minutes, seconds;
+        let display = document.querySelector('#timeDisplay');
+        
+        timerInterval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+            display.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+
+            if (--timer < 0) {
+                clearInterval(timerInterval);
+                submitExam();
+                alert("Time's up!");
+            }
+        }, 1000);
+    }
+</script>
+</body>
+</html>
